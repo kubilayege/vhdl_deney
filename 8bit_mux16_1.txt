@@ -1,0 +1,50 @@
+----------------------
+-- VHDL Code for 8bit 16:1 MUX
+-- Kubilay Ege
+----------------------
+
+Library IEEE;
+Use IEEE.std_logic_1164.all;
+entity array_mux16 is
+port(
+  D00    : in  std_logic_vector(7 downto 0);
+  D01    : in  std_logic_vector(7 downto 0);
+  D02    : in  std_logic_vector(7 downto 0);
+  D03    : in  std_logic_vector(7 downto 0);
+  D04    : in  std_logic_vector(7 downto 0);
+  D05    : in  std_logic_vector(7 downto 0);
+  D06    : in  std_logic_vector(7 downto 0);
+  D07    : in  std_logic_vector(7 downto 0);
+  D08    : in  std_logic_vector(7 downto 0);
+  D09    : in  std_logic_vector(7 downto 0);
+  D10    : in  std_logic_vector(7 downto 0);
+  D11    : in  std_logic_vector(7 downto 0);
+  D12    : in  std_logic_vector(7 downto 0);
+  D13    : in  std_logic_vector(7 downto 0);
+  D14    : in  std_logic_vector(7 downto 0);
+  D15    : in  std_logic_vector(7 downto 0);
+  S      : in  std_logic_vector(3 downto 0);
+  M      : out std_logic_vector(7 downto 0));
+end array_mux16;
+
+
+Architecture Behv of array_mux16 is
+Begin 
+M<= D00 WHEN S="0000" ELSE
+    D01 WHEN S="0001" ELSE
+    D02 WHEN S="0010" ELSE
+    D03 WHEN S="0011" ELSE
+    D04 WHEN S="0100" ELSE
+    D05 WHEN S="0101" ELSE
+    D06 WHEN S="0110" ELSE
+    D07 WHEN S="0111" ELSE
+    D08 WHEN S="1000" ELSE
+    D09 WHEN S="1001" ELSE
+    D10 WHEN S="1010" ELSE
+    D11 WHEN S="1011" ELSE
+    D12 WHEN S="1100" ELSE
+    D13 WHEN S="1101" ELSE
+    D14 WHEN S="1110" ELSE
+    D15 WHEN S="1111" ELSE
+    "ZZZZZZZZ";
+End Behv;
